@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">LinearLightsOut</string>
+    <string name="newGame">New Game</string>
+    <string name="headerMessage">Make the Buttons Match.</string>
 </resources>
