@@ -99,7 +99,9 @@
         android:layout_margin="5dp"
         android:text="@string/newGame"
         android:textSize="20sp"
-        android:layout_alignRight="@+id/numberRow"/>
+        android:layout_alignRight="@+id/numberRow"
+        android:onClick="startNewGame"
+       />
 <TextView
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
