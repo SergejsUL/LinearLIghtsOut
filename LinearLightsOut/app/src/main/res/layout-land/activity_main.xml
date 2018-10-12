@@ -1,6 +1,115 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity"
+    android:background="@color/background">
 
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:id="@+id/numberRow"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button0"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:textSize="20sp"
+            android:tag="0"
+            android:onClick="pressedButton"/>
+
+        <Button
+            android:id="@+id/button1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:textSize="20sp"
+            android:tag="1"
+            android:onClick="pressedButton"/>
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:textSize="20sp"
+            android:tag="2"
+            android:onClick="pressedButton"/>
+
+        <Button
+            android:id="@+id/button3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:textSize="20sp"
+            android:tag="3"
+            android:onClick="pressedButton"/>
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:textSize="20sp"
+            android:tag="4"
+            android:onClick="pressedButton"/>
+
+        <Button
+            android:id="@+id/button5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:textSize="20sp"
+            android:tag="5"
+            android:onClick="pressedButton"/>
+
+        <Button
+            android:id="@+id/button6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="3dp"
+            android:layout_weight="1"
+            android:width="0dp"
+            android:textSize="20sp"
+            android:tag="6"
+            android:onClick="pressedButton"/>
+        <Button
+            android:id="@+id/newGame"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/numberRow"
+            android:layout_margin="5dp"
+            android:text="@string/newGame"
+            android:textSize="20sp"
+            android:layout_alignRight="@+id/numberRow"
+            android:onClick="startNewGame"
+            />
+    </LinearLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="20dp"
+        android:id="@+id/headerMessage"
+        android:layout_above="@+id/numberRow"
+        android:text="@string/headerMessage"
+        android:layout_centerHorizontal="true"
+        android:layout_margin="10dp"/>
+</RelativeLayout>

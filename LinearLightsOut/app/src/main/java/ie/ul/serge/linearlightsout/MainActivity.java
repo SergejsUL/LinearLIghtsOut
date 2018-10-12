@@ -1,5 +1,6 @@
 package ie.ul.serge.linearlightsout;
 
+import android.os.PersistableBundle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -21,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+
         mLightsOutGame = new LightsOutGame(7);
         mGameText = findViewById(R.id.headerMessage);
         mButtons = new Button[7];
@@ -31,8 +33,16 @@ public class MainActivity extends AppCompatActivity {
         mButtons[4] = findViewById(R.id.button4);
         mButtons[5] = findViewById(R.id.button5);
         mButtons[6] = findViewById(R.id.button6);
-        updateView();
 
+
+        if (savedInstanceState != null) {
+            mLightsOutGame.setNumPresses(savedInstanceState.getInt("numPresses", 0));
+            int[] newValues = savedInstanceState.getIntArray("newValues");
+            mLightsOutGame.setAllValues(newValues);
+
+        }
+
+        updateView();
 
     }
 
@@ -40,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
         String pressedStr = view.getTag().toString();
         int pressedInt = Integer.parseInt(pressedStr);
         mLightsOutGame.pressedButtonAtIndex(pressedInt);
-        Toast.makeText(this, "Pressed button " + pressedInt, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, "Pressed button " + pressedInt, Toast.LENGTH_SHORT).show();
         updateView();
 
     }
@@ -69,6 +79,21 @@ public class MainActivity extends AppCompatActivity {
                 mGameText.setText("You have WON by making " + mLightsOutGame.getNumPresses() + attmpt + ".");
             } else
                 mGameText.setText("You have made " + mLightsOutGame.getNumPresses() + attmpt + ".");
-                }
-         }
+        } else {
+            mGameText.setText(R.string.headerMessage);
+        }
+    }
+
+    //save variables on screen rotation
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("numPresses", mLightsOutGame.getNumPresses());
+        int[] newValues = new int[7];
+        for (int i = 0; i < mButtons.length; i++) {
+            newValues[i] = mLightsOutGame.getValueAtIndex(i);
+        }
+        outState.putIntArray("newValues", newValues);
+
+    }
 }
